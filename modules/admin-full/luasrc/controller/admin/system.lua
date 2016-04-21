@@ -17,8 +17,8 @@ module("luci.controller.admin.system", package.seeall)
 
 function index()
 	entry({"admin", "system"}, alias("admin", "system", "system"), _("System"), 30).index = true
-	entry({"admin", "system", "system"}, cbi("admin_system/system"), _("System"), 1)
-	entry({"admin", "system", "clock_status"}, call("action_clock_status"))
+--	entry({"admin", "system", "system"}, cbi("admin_system/system"), _("System"), 1)
+--	entry({"admin", "system", "clock_status"}, call("action_clock_status"))
 
 	entry({"admin", "system", "admin"}, cbi("admin_system/admin"), _("Administration"), 2)
 	
@@ -28,8 +28,9 @@ function index()
 	end
 
 	entry({"admin", "system", "startup"}, form("admin_system/startup"), _("Startup"), 45)
-	entry({"admin", "system", "crontab"}, form("admin_system/crontab"), _("Scheduled Tasks"), 46)
-	
+--	entry({"admin", "system", "crontab"}, form("admin_system/crontab"), _("Scheduled Tasks"), 46)
+
+--[[	
 	if nixio.fs.access("/etc/config/fstab") then
 		entry({"admin", "system", "fstab"}, cbi("admin_system/fstab"), _("Mount Points"), 50)
 		entry({"admin", "system", "fstab", "mount"}, cbi("admin_system/fstab/mount"), nil).leaf = true
@@ -42,6 +43,7 @@ function index()
 
 	entry({"admin", "system", "flashops"}, call("action_flashops"), _("Backup / Flash Firmware"), 70)
 	entry({"admin", "system", "flashops", "backupfiles"}, form("admin_system/backupfiles"))
+--]]
 
 	entry({"admin", "system", "reboot"}, call("action_reboot"), _("Reboot"), 90)
 end

@@ -53,6 +53,7 @@ mtu.placeholder = 1500
 mtu.datatype = "range(64,9000)"
 mtu.rmempty = true
 
+--[[
 if routes6 then
 	s = m:section(TypedSection, "route6", translate("Static IPv6 Routes"))
 	s.addremove = true
@@ -81,6 +82,6 @@ if routes6 then
 	mtu.datatype = "range(64,9000)"
 	mtu.rmempty = true
 end
-
+--]]
 
 return m

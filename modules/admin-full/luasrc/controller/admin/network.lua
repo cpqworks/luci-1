@@ -24,6 +24,12 @@ function index()
 	page.title  = _("Network")
 	page.order  = 50
 	page.index  = true
+	
+	page = node("admin", "advanced")
+	page.target = firstchild()
+	page.title  = _("Advanced")
+	page.order  = 51
+	page.index  = true
 
 --	if page.inreq then
 		local has_switch = false
@@ -122,6 +128,7 @@ function index()
 
 
 		if nixio.fs.access("/etc/config/dhcp") then
+--[[
 			page = node("admin", "network", "dhcp")
 			page.target = cbi("admin_network/dhcp")
 			page.title  = _("DHCP and DNS")
@@ -129,6 +136,7 @@ function index()
 
 			page = entry({"admin", "network", "dhcplease_status"}, call("lease_status"), nil)
 			page.leaf = true
+--]]
 
 			page = node("admin", "network", "hosts")
 			page.target = cbi("admin_network/hosts")
@@ -136,23 +144,23 @@ function index()
 			page.order  = 40
 		end
 
-		page  = node("admin", "network", "routes")
+		page  = node("admin", "advanced", "routes")
 		page.target = cbi("admin_network/routes")
 		page.title  = _("Static Routes")
 		page.order  = 50
 
-		page = node("admin", "network", "diagnostics")
+		page = node("admin", "system", "diagnostics")
 		page.target = template("admin_network/diagnostics")
 		page.title  = _("Diagnostics")
 		page.order  = 60
 
-		page = entry({"admin", "network", "diag_ping"}, call("diag_ping"), nil)
+		page = entry({"admin", "system", "diag_ping"}, call("diag_ping"), nil)
 		page.leaf = true
 
-		page = entry({"admin", "network", "diag_nslookup"}, call("diag_nslookup"), nil)
+		page = entry({"admin", "system", "diag_nslookup"}, call("diag_nslookup"), nil)
 		page.leaf = true
 
-		page = entry({"admin", "network", "diag_traceroute"}, call("diag_traceroute"), nil)
+		page = entry({"admin", "system", "diag_traceroute"}, call("diag_traceroute"), nil)
 		page.leaf = true
 --	end
 end
