@@ -1,0 +1,2 @@
+config settings 'DEFAULT'
+        option enabled '0'
