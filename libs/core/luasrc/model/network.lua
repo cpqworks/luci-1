@@ -673,7 +673,6 @@ function protocol.get_i18n(self)
 		return i18n.translate("DHCP client")
 	elseif p == "pppoe" then
 		return i18n.translate("PPPoE client")
-
 	else
 		return i18n.translate("Unknown")
 	end
