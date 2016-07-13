@@ -671,6 +671,9 @@ function protocol.get_i18n(self)
 		return i18n.translate("Static address")
 	elseif p == "dhcp" then
 		return i18n.translate("DHCP client")
+	elseif p == "pppoe" then
+		return i18n.translate("PPPoE client")
+
 	else
 		return i18n.translate("Unknown")
 	end
@@ -1433,15 +1436,16 @@ end
 -- setup base protocols
 _M:register_protocol("static")
 _M:register_protocol("dhcp")
+_M:register_protocol("pppoe")
 _M:register_protocol("none")
 
 -- load protocol extensions
-local exts = nfs.dir(utl.libpath() .. "/model/network")
-if exts then
-	local ext
-	for ext in exts do
-		if ext:match("%.lua$") then
-			require("luci.model.network." .. ext:gsub("%.lua$", ""))
-		end
-	end
-end
+-- local exts = nfs.dir(utl.libpath() .. "/model/network")
+-- if exts then
+--	local ext
+--	for ext in exts do
+--		if ext:match("%.lua$") then
+--			require("luci.model.network." .. ext:gsub("%.lua$", ""))
+--		end
+--	end
+-- end
