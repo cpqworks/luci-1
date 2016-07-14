@@ -36,7 +36,7 @@ $Id$
 			legend.parentNode.style.display = 'block';
 			legend.style.display = 'inline';
 
-			stxhr.get('<%=luci.dispatcher.build_url("admin", "network")%>/diag_' + tool + '/' + addr, null,
+			stxhr.get('<%=luci.dispatcher.build_url("admin", "system")%>/diag_' + tool + '/' + addr, null,
 				function(x)
 				{
 					if (x.responseText)
