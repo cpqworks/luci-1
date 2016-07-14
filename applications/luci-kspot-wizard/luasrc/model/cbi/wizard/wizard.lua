@@ -309,7 +309,7 @@ e:value("psk", "WPA-PSK")
 e:value("psk2", "WPA2-PSK")
 e:value("psk-mixed", "WPA-PSK/WPA2-PSK Mixed Mode")
 
-e = s:option(Value, "_wpa_key", translate("Key"))
+e = s:option(Value, "key", translate("Key"))
 e:depends("encryption", "psk")
 e:depends("encryption", "psk2")
 e:depends("encryption", "psk+psk2")
