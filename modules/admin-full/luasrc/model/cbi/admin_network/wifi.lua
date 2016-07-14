@@ -791,7 +791,7 @@ acct_secret:depends({mode="ap-wds", encryption="wpa2"})
 acct_secret.rmempty = true
 acct_secret.password = true
 
-wpakey = s:taboption("encryption", Value, "_wpa_key", translate("Key"))
+wpakey = s:taboption("encryption", Value, "key", translate("Key"))
 wpakey:depends("encryption", "psk")
 wpakey:depends("encryption", "psk2")
 wpakey:depends("encryption", "psk+psk2")
