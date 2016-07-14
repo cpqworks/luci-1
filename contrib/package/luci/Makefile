@@ -445,6 +445,12 @@ $(eval $(call application,pbx,LuCI PBX Administration,\
 
 $(eval $(call application,pbx-voicemail,LuCI PBX Administration Voicemail Support,\
 	luci-app-pbx +PACKAGE_luci-app-pbx-voicemail:msmtp))
+	
+$(eval $(call application,kspot-safehome,Kspot safehome,\
+        +PACKAGE_luci-app-kspot-safehome))
+
+$(eval $(call application,kspot-wizard,Kspot wizard,\
+        +PACKAGE_luci-app-kspot-wizard))
 
 $(eval $(call application,lqtapifoss,Lantiq voip))
 
