@@ -120,8 +120,8 @@ function index()
 				function (section)
 					local ifc = section[".name"]
 					if ifc ~= "loopback" then
-						entry({"admin", "network", "network", ifc},
-						true, ifc:upper())
+--						entry({"admin", "network", "network", ifc},
+--						true, ifc:upper())
 					end
 				end)
 		end
