@@ -27,7 +27,7 @@ function index()
 		entry({"admin", "system", "packages", "ipkg"}, form("admin_system/ipkg"))
 	end
 
-	entry({"admin", "system", "startup"}, form("admin_system/startup"), _("Startup"), 45)
+--	entry({"admin", "system", "startup"}, form("admin_system/startup"), _("Startup"), 45)
 --	entry({"admin", "system", "crontab"}, form("admin_system/crontab"), _("Scheduled Tasks"), 46)
 
 --[[	
