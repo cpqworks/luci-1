@@ -41,10 +41,10 @@ function index()
 			end)
 
 		if has_switch then
-			page  = node("admin", "network", "vlan")
-			page.target = cbi("admin_network/vlan")
-			page.title  = _("Switch")
-			page.order  = 20
+--			page  = node("admin", "network", "vlan")
+--			page.target = cbi("admin_network/vlan")
+--			page.title  = _("Switch")
+--			page.order  = 20
 		end
 
 
