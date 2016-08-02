@@ -264,5 +264,24 @@ e:value("255.255.255.0")
 e:value("255.255.0.0")
 e:value("255.0.0.0")
 
-return m, l
+d = Map("dhcp")
+
+s = d:section(NamedSection, "lan",  "dhcp", translate("DHCP"))
+s.addremove = false
+s.anonymous = false
+s.optional = false
+
+e = s:option(Value, "start", translate("Start"),translate("Lowest leased address as offset from the network address."))
+e.default = "100"
+e.rmempty = false
+e.optional = true
+e.datatype = "uinteger"
+
+e = s:option(Value, "limit", translate("Limit"),translate("Maximum number of leased addresses."))
+e.default = "100"
+e.rmempty = false
+e.optional = true
+e.datatype = "uinteger"
+
+return m, l, d
 
