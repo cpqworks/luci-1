@@ -22,10 +22,10 @@ function index()
 
 	entry({"admin", "system", "admin"}, cbi("admin_system/admin"), _("Administration"), 2)
 	
-	if nixio.fs.access("/bin/opkg") then
-		entry({"admin", "system", "packages"}, call("action_packages"), _("Software"), 10)
-		entry({"admin", "system", "packages", "ipkg"}, form("admin_system/ipkg"))
-	end
+--	if nixio.fs.access("/bin/opkg") then
+--		entry({"admin", "system", "packages"}, call("action_packages"), _("Software"), 10)
+--		entry({"admin", "system", "packages", "ipkg"}, form("admin_system/ipkg"))
+--	end
 
 --	entry({"admin", "system", "startup"}, form("admin_system/startup"), _("Startup"), 45)
 --	entry({"admin", "system", "crontab"}, form("admin_system/crontab"), _("Scheduled Tasks"), 46)
