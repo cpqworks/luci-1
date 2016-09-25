@@ -377,8 +377,8 @@ s:taboption("general", Value, "ssid", translate("<abbr title=\"Extended Service 
 mode = s:taboption("general", ListValue, "mode", translate("Mode"))
 mode.override_values = true
 mode:value("ap", translate("Access Point"))
-mode:value("sta", translate("Client"))
-mode:value("adhoc", translate("Ad-Hoc"))
+--mode:value("sta", translate("Client"))
+--mode:value("adhoc", translate("Ad-Hoc"))
 
 bssid = s:taboption("general", Value, "bssid", translate("<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"))
 
@@ -477,11 +477,11 @@ end
 -------------------- Madwifi Interface ----------------------
 
 if hwtype == "atheros" or hwtype == "mt7620" then
-	mode:value("ahdemo", translate("Pseudo Ad-Hoc (ahdemo)"))
-	mode:value("monitor", translate("Monitor"))
+--	mode:value("ahdemo", translate("Pseudo Ad-Hoc (ahdemo)"))
+--	mode:value("monitor", translate("Monitor"))
 	mode:value("ap-wds", "%s (%s)" % {translate("Access Point"), translate("WDS")})
-	mode:value("sta-wds", "%s (%s)" % {translate("Client"), translate("WDS")})
-	mode:value("wds", translate("Static WDS"))
+--	mode:value("sta-wds", "%s (%s)" % {translate("Client"), translate("WDS")})
+--	mode:value("wds", translate("Static WDS"))
 
 	function mode.write(self, section, value)
 		if value == "ap-wds" then
