@@ -266,22 +266,32 @@ e:value("255.0.0.0")
 
 d = Map("dhcp")
 
-s = d:section(NamedSection, "lan",  "dhcp", translate("DHCP"))
+s = d:section(NamedSection, "lan",  "dhcp", translate("LAN DHCP"))
 s.addremove = false
 s.anonymous = false
 s.optional = false
 
-e = s:option(Value, "start", translate("Start"),translate("Lowest leased address as offset from the network address."))
-e.default = "100"
-e.rmempty = false
-e.optional = true
-e.datatype = "uinteger"
+e = s:option(Flag, "ignore",
+			translate("Ignore interface"),
+			translate("Disable <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</abbr> for " ..
+				"this interface."))
 
-e = s:option(Value, "limit", translate("Limit"),translate("Maximum number of leased addresses."))
-e.default = "100"
-e.rmempty = false
+e = s:option(Value, "start", translate("Start"),
+			translate("Lowest leased address as offset from the network address."))
 e.optional = true
 e.datatype = "uinteger"
+e.default = "100"
+
+e = s:option(Value, "limit", translate("Limit"),
+			translate("Maximum number of leased addresses."))
+e.optional = true
+e.datatype = "uinteger"
+e.default = "150"
+
+e = s:option(Value, "leasetime", translate("Leasetime"),
+			translate("Expiry time of leased addresses, minimum is 2 Minutes (<code>2m</code>)."))
+e.rmempty = true
+e.default = "12h"
 
 w = Map("wireless")
 
