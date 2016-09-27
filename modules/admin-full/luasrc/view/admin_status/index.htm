@@ -26,11 +26,11 @@ $Id$
 		local ntm = require "luci.model.network".init()
 		local dr4 = luci.sys.net.defaultroute()
 		local dr6 = luci.sys.net.defaultroute6()
-		local wan, wan6
+		local wan, wan6, device, device6
 
 		if dr4 and dr4.device then
-			wan = ntm:get_interface(dr4.device)
-			wan = wan and wan:get_network()
+			device = ntm:get_interface(dr4.device)
+			wan = device and device:get_network()
 		end
 
 		if dr6 and dr6.device then
@@ -66,8 +66,7 @@ $Id$
 
 		if wan then
 			rv.wan = {
-				ipaddr  = wan:ipaddr(),
-				gwaddr  = wan:gwaddr(),
+				gwaddr  = dr4.gateway:string(),
 				netmask = wan:netmask(),
 				dns     = wan:dnsaddrs(),
 				expires = wan:expires(),
@@ -76,6 +75,11 @@ $Id$
 				ifname  = wan:ifname(),
 				link    = wan:adminlink()
 			}
+	
+	                local _, a                                             
+                	for _, a in ipairs(device:ipaddrs()) do                               
+                        	rv.wan.ipaddr = a:host():string()               
+                	end
 		end
 
 		if wan6 then
