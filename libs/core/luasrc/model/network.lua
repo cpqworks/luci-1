@@ -1244,9 +1244,13 @@ function wifinet.__init__(self, net, data)
 
 	self.netid  = netid
 	self.wdev   = dev
-	self.iwinfo = dev and sys.wifi.getiwinfo(dev) or { }
 	self.iwdata = data or _uci_state:get_all("wireless", self.sid) or
 		_uci_real:get_all("wireless", self.sid) or { }
+	if self.iwdata and self.iwdata.disabled and self.iwdata.disabled == "1" then
+        self.iwinfo =  { }                                   
+	else                                                                              
+        self.iwinfo = dev and sys.wifi.getiwinfo(dev) or { }
+	end 	
 end
 
 function wifinet.get(self, opt)
